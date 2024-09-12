@@ -1,3 +1,10 @@
+# основные зависимости
 Django>=5.1.1
 djangorestframework>=3.15.2
+logging>=0.4.9.6
+
+# ml
+tqdm>=4.66.2
 numpy>=2.1.1
+pandas>=2.2.2
+scikit-learn>=1.5.1
