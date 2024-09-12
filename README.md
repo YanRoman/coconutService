@@ -7,6 +7,8 @@
 - Python 3
 # Точки доступа
 - http://localhost:8000/api/base [get]
+# Датасет 
+- https://drive.google.com/drive/my-drive?hl=ru
 # Запуск:
 ### 1. Dockerfile
 ``` shell
