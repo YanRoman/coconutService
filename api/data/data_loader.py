@@ -23,12 +23,15 @@ class DataLoader:
             self.df = self.df.sample(n=DATA_MAX_SIZE, random_state=1)
             logging.info(f"Файл обрезан до {DATA_MAX_SIZE} записей.")
 
-    def get_cart(self):
+    def get_df(self):
+        return self.df
+
+    def get_transactions(self):
         cart_df = self.df.groupby('user_session')['product_id'].apply(list).reset_index()
         cart_df.columns = ['user_session', 'product_ids']
         cart_df = cart_df[cart_df['product_ids'].apply(len) > 1]
         return cart_df
 
-    def get_cart_train_test(self):
-        test_cart_df, train_cart_df = train_test_split(self.get_cart(), test_size=0.2, random_state=42)
+    def get_transactions_train_test(self):
+        test_cart_df, train_cart_df = train_test_split(self.get_transactions(), test_size=0.2, random_state=42)
         return test_cart_df, train_cart_df
